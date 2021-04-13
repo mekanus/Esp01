@@ -35,34 +35,6 @@ RECOMENDAÇÃO IMPORTANTE PARA UMA CONEXÃO BEM SUCEDIDA:
 Sua rede SSID deve possuir nome sem caracteres especiais ou numerais. Alguns roteadores que possuem duas velocidades, apresentam em seus nomes alguns termos como “2.4G” ou “5.0G” e isso dificulta a conexão adequada com o roteador. Ou seja, muito mal consegue fazer a conexão com uma rede interna. Seguindo...
 Fazendo uso de um programador USB para ESP-01s, transferimos o código através do Arduino IDE.
 
-O CÓDIGO
-#include <CayenneMQTTESP8266.h>         // Inclui biblioteca específica para o ESP8266
-#define CAYENNE_DEBUG                   // Inclui bibliotecas adicionais para debug
-#define CAYENNE_PRINT Serial            // Define funções seriais
-char ssid[] = "nome_da_sua_rede";                               // Nome da rede wifi
-char password[]="senha_da_sua_rede";                            // Senha da rede wifi
-char username[] = "código_username_fornecido_na_página";        // Username obtido nas configurações do Cayenne
-char mqtt_password[] = "código_mqtt_fornecido_na_página";       // Senha de acesso ao MQTT
-char cliend_id[] = "código_id_do_cliente_fornecido_na_página";  // Cliente ID
-
-void setup() {
-  Serial.begin(9600);
-  Cayenne.begin(username, mqtt_password, cliend_id, ssid, password);  //Inicia o Cayenne com as informações recebidas
-  pinMode(2, OUTPUT);
-  digitalWrite(2, HIGH);
-  //pinMode(0, OUTPUT);
-  //digitalWrite(0, HIGH);
-}
-void loop() {
-  Cayenne.loop();
-}
-CAYENNE_IN(0){
-  //digitalWrite(0, !getValue.asInt()); 
-}
-CAYENNE_IN(2){
-  digitalWrite(2, !getValue.asInt()); 
-}
-
 Depois de compilado, ainda no programador, o ESP-01s pode ser testado. Usaremos o LED embarcado na própria placa como teste. Como ele está ligado ao GPIO “2” do ESP-01, poderemos facilmente observar a reação.
 Para que isso ocorra bem, precisamos preparar o dashboard. Naquela página dos códigos, clicamos no botão “Back” e então, uma página semelhante a esta a seguir, aparecerá. Dados pessoais foram ocultados, ok.
  
