@@ -1,8 +1,8 @@
 #include <CayenneMQTTESP8266.h>
 #define CAYENNE_DEBUG
 #define CAYENNE_PRINT Serial
-char ssid[] = "MEKANUS.";
-char password[]="robotica10";
+char ssid[] = "sua-rede";
+char password[]="senha-da-sua-rede";
 char username[] = "8818a890-9c56-11eb-883c-638d8ce4c23d";
 char mqtt_password[] = "f31767ef1fc320597a5f71f3d5feaeea2238f325";
 char cliend_id[] = "2c582650-9c85-11eb-a2e4-b32ea624e442";
